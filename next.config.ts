@@ -9,10 +9,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    clientRouterFilter: false,
-  },
+  serverExternalPackages: [],
   transpilePackages: ['lucide-react'],
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = config.externals || [];
+    }
+    return config;
+  },
 };
 
 export default nextConfig;
