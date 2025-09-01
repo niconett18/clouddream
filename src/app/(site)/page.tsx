@@ -1,13 +1,11 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import CategoryCard from "@/components/CategoryCard";
 import { Card, CardContent } from "@/components/ui/card";
-import { Check, Star } from "lucide-react";
-import { organizationJsonLd } from "@/lib/seo";
+import { Star } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Home",
