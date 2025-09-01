@@ -1,0 +1,65 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
+import { Product } from "@/data/products";
+
+interface ProductCardProps {
+  product: Product;
+  index: number;
+}
+
+export default function ProductCard({ product, index }: ProductCardProps) {
+  return (
+    <div 
+      className="h-full animate-fadeInUp hover:translate-y-[-8px] transition-all duration-500 ease-in-out"
+      style={{ animationDelay: `${index * 100}ms` }}
+    >
+      <Link
+        href={`/our-product/${product.category}/${product.slug}`}
+        className="block h-full group"
+      >
+        <Card className="overflow-hidden h-full flex flex-col border border-gray-100 hover:border-[#001435] hover:shadow-xl transition-all duration-500 ease-in-out transform group-hover:scale-105">
+          <div className="relative aspect-square w-full overflow-hidden bg-gray-50">
+            <Image
+              src={product.images[0] || "/placeholder.jpg"}
+              alt={product.name}
+              fill
+              className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+              priority={index < 4}
+              quality={90}
+            />
+          </div>
+          <CardContent className="flex-1 flex flex-col p-6">
+            <h3 className="text-xl font-semibold mb-3 text-[#001435] group-hover:text-[#003366] transition-colors duration-300">
+              {product.name}
+            </h3>
+            <p className="text-[#001435] text-sm mb-4 line-clamp-3 flex-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              {product.shortDesc}
+            </p>
+            {product.price && (
+              <div className="mt-auto">
+                {product.originalPrice ? (
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-gray-500 text-sm line-through">
+                      Rp {product.originalPrice.toLocaleString('id-ID')}
+                    </p>
+                    <p className="text-[#001435] font-bold text-lg group-hover:text-[#003366] transition-colors duration-300">
+                      Rp {product.price.toLocaleString('id-ID')}
+                    </p>
+                  </div>
+                ) : (
+                  <p className="text-[#001435] font-bold text-lg group-hover:text-[#003366] transition-colors duration-300">
+                    Rp {product.price.toLocaleString('id-ID')}
+                  </p>
+                )}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </Link>
+    </div>
+  );
+}

@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: #F5F1EC;
+    --foreground: #4A3925;
+    --card: #FFFFFF;
+    --card-foreground: #4A3925;
+    --popover: #FFFFFF;
+    --popover-foreground: #4A3925;
+    --primary: #7E6148;
+    --primary-foreground: #FFFFFF;
+    --secondary: #C4B2A0;
+    --secondary-foreground: #4A3925;
+    --muted: #E8D8C7;
+    --muted-foreground: #7E6148;
+    --accent: #E8D8C7;
+    --accent-foreground: #4A3925;
+    --destructive: #ef4444;
+    --border: #C4B2A0;
+    --input: #C4B2A0;
+    --ring: #7E6148;
+  }
+ 
+  .dark {
+    --background: #4A3925;
+    --foreground: #F5F1EC;
+    --card: #7E6148;
+    --card-foreground: #FFFFFF;
+    --popover: #7E6148;
+    --popover-foreground: #FFFFFF;
+    --primary: #E8D8C7;
+    --primary-foreground: #4A3925;
+    --secondary: #C4B2A0;
+    --secondary-foreground: #FFFFFF;
+    --muted: #C4B2A0;
+    --muted-foreground: #E8D8C7;
+    --accent: #C4B2A0;
+    --accent-foreground: #FFFFFF;
+    --destructive: #ff6b6b;
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: #C4B2A0;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Pillow brand custom styles */
+@layer components {
+  .hero-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold text-brand-primary mb-6;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-primary text-white hover:bg-brand-dark transition-colors duration-300 px-6 py-3 rounded-md;
+  }
+  
+  .btn-secondary {
+    @apply bg-brand-secondary text-brand-dark hover:bg-brand-accent transition-colors duration-300 px-6 py-3 rounded-md;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden border border-brand-accent/20;
+  }
+  
+  .product-card {
+    @apply card hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .feature-card {
+    @apply p-6 rounded-lg bg-brand-light border border-brand-accent;
+  }
+}
