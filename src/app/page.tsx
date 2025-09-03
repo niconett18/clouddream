@@ -87,9 +87,12 @@ export default function Home() {
         title="Rasakan Tidur Malam yang Sempurna"
         subtitle="Bantal dan guling premium yang dibuat untuk kenyamanan dan dukungan terbaik"
         showCta={true}
-      />
-
-      {/* Features Section */}
+        mobileImageUrl="/mobile-herobg.jpg"
+        imageUrl="/hero-bg.jpg"
+        desktopObjectPosition="center center"
+        mobileObjectPosition="center center"
+        containOnDesktop={true}
+      />      {/* Features Section */}
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {features.map((feature, index) => (

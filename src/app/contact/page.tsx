@@ -29,27 +29,17 @@ export default function ContactPage() {
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-4">
-                <div className="flex flex-col items-center space-y-3 p-4 md:p-6 bg-gray-50 rounded-lg">
-                  <div className="bg-[#001435]/10 p-3 rounded-full">
-                    <MapPin className="h-6 w-6 text-[#001435]" />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-lg font-semibold mb-1 text-[#001435]">Lokasi Kami</h3>
-                    <p className="text-[#001435] text-sm md:text-base leading-relaxed">
-                      Jl. Kenyamanan No. 123<br />
-                      Kota Tidur, Jakarta 12345<br />
-                      Indonesia
-                    </p>
-                  </div>
-                </div>
+                {/* Location section removed per request */}
 
                 <div className="flex flex-col items-center space-y-3 p-4 md:p-6 bg-gray-50 rounded-lg">
                   <div className="bg-[#001435]/10 p-3 rounded-full">
                     <Phone className="h-6 w-6 text-[#001435]" />
                   </div>
                   <div className="text-center">
-                    <h3 className="text-lg font-semibold mb-1 text-[#001435]">Telepon</h3>
-                    <p className="text-[#001435] text-sm md:text-base">+62 21 1234-5678</p>
+                    <h3 className="text-lg font-semibold mb-1 text-[#001435]">WhatsApp</h3>
+                    <p className="text-[#001435] text-sm md:text-base">
+                      <a href="https://wa.me/6281212561603" className="underline decoration-[#001435]/30 hover:decoration-[#001435] transition-colors" target="_blank" rel="noopener noreferrer">081212561603</a>
+                    </p>
                   </div>
                 </div>
 
@@ -59,23 +49,13 @@ export default function ContactPage() {
                   </div>
                   <div className="text-center">
                     <h3 className="text-lg font-semibold mb-1 text-[#001435]">Email</h3>
-                    <p className="text-[#001435] text-sm md:text-base">info@clouddream.com</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col items-center space-y-3 p-4 md:p-6 bg-gray-50 rounded-lg">
-                  <div className="bg-[#001435]/10 p-3 rounded-full">
-                    <Clock className="h-6 w-6 text-[#001435]" />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-lg font-semibold mb-1 text-[#001435]">Jam Kerja</h3>
-                    <p className="text-[#001435] text-sm md:text-base leading-relaxed">
-                      Senin - Jumat: 09:00 - 18:00<br />
-                      Sabtu: 10:00 - 16:00<br />
-                      Minggu: Tutup
+                    <p className="text-[#001435] text-sm md:text-base">
+                      <a href="mailto:cloudream.sleep@gmail.com" className="underline decoration-[#001435]/30 hover:decoration-[#001435] transition-colors">cloudream.sleep@gmail.com</a>
                     </p>
                   </div>
                 </div>
+
+                {/* Working hours removed per request */}
               </div>
             </div>
           </div>

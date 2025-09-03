@@ -65,18 +65,11 @@ export const organizationJsonLd = {
   logo: 'https://clouddream.com/logo.png',
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+62-21-1234-5678',
+    telephone: '+62-812-1256-1603', // WhatsApp number
     contactType: 'customer service',
     availableLanguage: ['Indonesian'],
   },
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Jl. Kenyamanan No. 123',
-    addressLocality: 'Kota Tidur',
-    addressRegion: 'Jakarta',
-    postalCode: '12345',
-    addressCountry: 'ID',
-  },
+  // Physical address intentionally omitted per site owner request
   sameAs: [
     'https://www.facebook.com/clouddream',
     'https://www.instagram.com/clouddream',

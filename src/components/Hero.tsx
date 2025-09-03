@@ -2,13 +2,18 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface HeroProps {
   title: string;
   subtitle?: string;
   showCta?: boolean;
   imageUrl?: string;
+  mobileImageUrl?: string; // optional mobile-specific background
   height?: "small" | "medium" | "large";
+  desktopObjectPosition?: string; // e.g. 'left center', '50% 30%'
+  mobileObjectPosition?: string; // override for mobile if subject needs centering differently
+  containOnDesktop?: boolean; // show full image on >= md screens (object-contain) so subject isn't cropped
 }
 
 export default function Hero({
@@ -16,6 +21,10 @@ export default function Hero({
   subtitle,
   showCta = false,
   imageUrl = "/hero-bg.jpg",
+  mobileImageUrl = "/mobile-herobg.jpg",
+  desktopObjectPosition = 'center center',
+  mobileObjectPosition,
+  containOnDesktop = false,
   height = "large",
 }: HeroProps) {
   const heightClass = {
@@ -25,29 +34,43 @@ export default function Hero({
   };
 
   return (
-    <section
-      className={`relative flex items-center justify-center ${heightClass[height]} bg-white overflow-hidden`}
-    >
+    <section className={`relative flex items-center justify-center ${heightClass[height]} bg-white`}>
       {imageUrl && (
-        <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105 md:scale-100"
-            style={{ backgroundImage: `url(${imageUrl})` }}
+        <div className="absolute inset-0 -z-10">
+          {/* Mobile specific image */}
+          <Image
+            src={mobileImageUrl || imageUrl}
+            alt="Hero background"
+            fill
+            priority
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="block sm:hidden object-cover w-full h-full"
+            style={mobileObjectPosition ? { objectPosition: mobileObjectPosition } : undefined}
+          />
+          {/* Desktop / tablet image */}
+          <Image
+            src={imageUrl}
+            alt="Hero background"
+            fill
+            priority
+            sizes="(max-width: 640px) 100vw, 100vw"
+            className={`hidden sm:block w-full h-full ${containOnDesktop ? 'object-contain md:object-contain bg-white' : 'object-cover'}`}
+            style={{ objectPosition: desktopObjectPosition }}
           />
           <div className="absolute inset-0 bg-white/20 md:bg-white/25" />
         </div>
       )}
 
-      <div className="container mx-auto px-6 md:px-8 relative z-10 text-center py-8 md:py-16">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 py-12 sm:py-16 flex flex-col items-center sm:items-start text-center sm:text-left max-w-2xl">
         <h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#001435] mb-4 md:mb-6 animate-fade-in-up leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001435] mb-4 md:mb-6 animate-fade-in-up leading-tight drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)]"
         >
           {title}
         </h1>
         
         {subtitle && (
           <p
-            className="text-base sm:text-lg md:text-xl text-[#001435] max-w-2xl mx-auto mb-6 md:mb-8 animate-fade-in-up px-4 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-[#001435] mb-6 md:mb-8 animate-fade-in-up px-2 sm:px-0 leading-relaxed drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)]"
             style={{ animationDelay: "0.2s" }}
           >
             {subtitle}
@@ -55,15 +78,12 @@ export default function Hero({
         )}
 
         {showCta && (
-          <div 
-            className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 animate-fade-in-up px-4"
+          <div
+            className="flex flex-col sm:flex-row sm:justify-start gap-3 md:gap-4 animate-fade-in-up w-full max-w-xs sm:max-w-none"
             style={{ animationDelay: "0.4s" }}
           >
-            <Button asChild size="lg" className="bg-[#001435] hover:bg-[#003366] hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out text-white w-full sm:w-auto">
-              <Link href="/our-product">Jelajahi Produk</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="border-[#001435] text-[#001435] hover:bg-[#001435] hover:text-white hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-auto">
-              <Link href="/contact">Hubungi Kami</Link>
+            <Button asChild size="lg" className="bg-[#001435] hover:bg-[#003366] w-full sm:w-auto">
+              <Link href="/our-product">JELAJAHI PRODUK</Link>
             </Button>
           </div>
         )}
