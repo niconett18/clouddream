@@ -11,8 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+// Removed Sheet (side drawer) in favor of custom top-drop menu
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,6 +34,8 @@ export default function Header() {
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const [isInitialized, setIsInitialized] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const navItemRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
   const pathname = usePathname();
@@ -89,6 +90,40 @@ export default function Header() {
     // Return to active item position
     updateUnderlinePosition(pathname);
   };
+
+  // Scroll lock & ESC close for mobile menu
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsMobileMenuOpen(false);
+        triggerButtonRef.current?.focus();
+      }
+      if (e.key === 'Tab') {
+        const panel = document.getElementById('mobile-top-panel');
+        if (!panel) return;
+        const focusables = panel.querySelectorAll<HTMLElement>('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])');
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    setTimeout(() => firstMobileLinkRef.current?.focus(), 0);
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <header
@@ -145,90 +180,65 @@ export default function Header() {
           </NavigationMenu>
         </nav>
         
-        {/* Mobile Navigation */}
-        <Sheet onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger className="lg:hidden p-2 relative group focus:outline-none focus:ring-2 focus:ring-[#001435]/20 rounded-lg" aria-label="Toggle Menu">
-            <div className="w-7 h-7 flex flex-col justify-center items-center space-y-1">
-              <div 
-                className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
-                  isMobileMenuOpen 
-                    ? 'rotate-45 translate-y-2 bg-[#003366]' 
-                    : 'group-hover:bg-[#003366] group-hover:w-7'
-                }`}
-              ></div>
-              <div 
-                className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
-                  isMobileMenuOpen 
-                    ? 'opacity-0 scale-0' 
-                    : 'group-hover:bg-[#003366] group-hover:w-7'
-                }`}
-              ></div>
-              <div 
-                className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
-                  isMobileMenuOpen 
-                    ? '-rotate-45 -translate-y-2 bg-[#003366]' 
-                    : 'group-hover:bg-[#003366] group-hover:w-7'
-                }`}
-              ></div>
-            </div>
-          </SheetTrigger>
-          <SheetContent 
-            side="right" 
-            className="w-full pt-16 bg-white/95 backdrop-blur-md border-l border-gray-200/50 shadow-xl"
-          >
-            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            
-            {/* Logo in mobile menu */}
-            <div className="flex justify-center mb-8 pb-6 border-b border-gray-200/30">
-              <Image 
-                src="/logoclouddream.svg" 
-                alt="Cloudream Logo" 
-                width={160} 
-                height={50}
-                className="h-12 w-auto"
-              />
-            </div>
-            
-            <nav className="flex flex-col gap-2 px-2">
-              {navItems.map((item, index) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`relative px-6 py-4 text-lg font-medium tracking-wide rounded-xl transition-all duration-300 ease-out group text-center ${
-                    pathname === item.path 
-                      ? "text-white bg-gradient-to-r from-[#001435] to-[#003366] shadow-lg" 
-                      : "text-[#001435] hover:bg-[#001435]/8 hover:text-[#003366] hover:shadow-md"
-                  }`}
-                  style={{
-                    animationDelay: `${index * 100}ms`,
-                    animation: 'slideInFromRight 0.6s ease-out forwards'
-                  }}
-                >
-                  <span className="relative z-10 transition-transform duration-200 group-hover:translate-x-1">
-                    {item.name}
-                  </span>
-                  {pathname !== item.path && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#001435]/5 to-[#003366]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  )}
-                </Link>
-              ))}
-            </nav>
-            
-            {/* Contact info in mobile menu */}
-            <div className="mt-12 px-6 text-center">
-              <div className="text-sm text-[#001435]/80 mb-2">Hubungi Kami</div>
-              <div className="text-xs text-[#001435]/60">Premium Sleep Solutions</div>
-            </div>
-            
-            {/* Footer in mobile menu */}
-            <div className="absolute bottom-6 left-6 right-6 text-center">
-              <p className="text-xs text-gray-500/80">
-                © 2024 Cloudream
-              </p>
-            </div>
-          </SheetContent>
-        </Sheet>
+        {/* Mobile Navigation - custom top-drop */}
+        <button
+          ref={triggerButtonRef}
+          onClick={() => setIsMobileMenuOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-top-panel"
+          className="lg:hidden p-2 relative group focus:outline-none focus:ring-2 focus:ring-[#001435]/20 rounded-lg"
+        >
+          <div className="w-7 h-7 flex flex-col justify-center items-center space-y-1">
+            <span className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all ${isMobileMenuOpen ? 'rotate-45 translate-y-2 bg-[#003366]' : 'group-hover:bg-[#003366]'}`}></span>
+            <span className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all ${isMobileMenuOpen ? 'opacity-0 scale-0' : 'group-hover:bg-[#003366]'}`}></span>
+            <span className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all ${isMobileMenuOpen ? '-rotate-45 -translate-y-2 bg-[#003366]' : 'group-hover:bg-[#003366]'}`}></span>
+          </div>
+        </button>
+      </div>
+      {/* Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-[#001435]/30 backdrop-blur-[2px] lg:hidden z-[60]"
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+      {/* Top-drop panel */}
+      <div
+        id="mobile-top-panel"
+        role="dialog"
+        aria-modal="true"
+        className={`lg:hidden fixed left-0 right-0 top-0 z-[70] origin-top bg-brand-secondary border-b shadow-sm transition-transform duration-200 ${isMobileMenuOpen ? 'scale-y-100' : 'scale-y-0 pointer-events-none'} transform`}
+        style={{ transformOrigin: 'top' }}
+      >
+        <div className="container mx-auto px-4 md:px-8">
+          <div className="h-14 flex items-center justify-between">
+            <Link href="/" className="flex items-center" aria-label="Cloudream Logo">
+              <Image src="/logoclouddream.svg" alt="Cloudream Logo" width={150} height={50} className="h-10 w-auto" />
+            </Link>
+            <button
+              onClick={() => { setIsMobileMenuOpen(false); triggerButtonRef.current?.focus(); }}
+              aria-label="Close menu"
+              className="w-10 h-10 grid place-items-center focus:outline-none focus:ring-2 focus:ring-offset-2"
+            >
+              <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            </button>
+          </div>
+          <nav aria-label="Mobile" className="pb-2">
+            {navItems.map((item, idx) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                ref={idx === 0 ? firstMobileLinkRef : undefined}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block uppercase tracking-wide font-medium py-4 border-t first:border-t-0 border-gray-200/40 text-[#001435]"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
   );
