@@ -20,21 +20,19 @@ export default function ProductCard({ product, index }: ProductCardProps) {
         href={`/our-product/${product.category}/${product.slug}`}
         className="block h-full group"
       >
-        <Card className="overflow-hidden h-full flex flex-col border border-gray-100 hover:border-[#001435] hover:shadow-xl transition-all duration-500 ease-in-out transform group-hover:scale-[1.02] md:group-hover:scale-105 p-0">
-          <div className="relative aspect-square w-full overflow-hidden">
+        <Card className="overflow-visible h-full flex flex-col border border-gray-100 hover:border-[#001435] hover:shadow-xl transition-all duration-500 ease-in-out transform group-hover:scale-[1.02] md:group-hover:scale-105 p-0">
+          <div className="relative aspect-[4/3] w-full overflow-visible p-2">
             <Image
               src={product.images[0] || "/placeholder.jpg"}
               alt={product.name}
               fill
-              className="object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-110 md:group-hover:scale-110"
+              className="object-contain w-full h-full transition-transform duration-700 ease-in-out group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
               priority={index < 4}
-              quality={95}
+              quality={90}
             />
-            {/* Mobile overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:hidden"></div>
           </div>
-          <CardContent className="flex-1 flex flex-col p-4 md:p-6">
+          <CardContent className="flex-1 flex flex-col p-3 sm:p-4 md:p-6">
             <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3 text-[#001435] group-hover:text-[#003366] transition-colors duration-300 leading-tight">
               {product.name}
             </h3>
