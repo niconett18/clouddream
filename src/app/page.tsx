@@ -97,7 +97,7 @@ export default function Home() {
               <CardContent className="p-8">
                 <div className="mb-4">{feature.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-[#001435]">{feature.title}</h3>
-                <p className="text-[#001435]">{feature.description}</p>
+                <p className="text-[#001435] text-justify">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -153,7 +153,7 @@ export default function Home() {
       <Section className="bg-[#E8D8C7]/10">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#001435]">Siap untuk Tidur Lebih Baik?</h2>
-          <p className="text-[#001435] mb-8">
+          <p className="text-[#001435] mb-8 text-justify">
             Ubah pengalaman tidur Anda dengan rangkaian premium bantal dan guling Cloudream. Perjalanan Anda menuju tidur yang lebih baik dimulai di sini.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

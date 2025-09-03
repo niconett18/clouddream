@@ -36,7 +36,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
             <h3 className="text-xl font-semibold mb-3 text-[#001435] group-hover:text-[#003366] transition-colors duration-300">
               {product.name}
             </h3>
-            <p className="text-[#001435] text-sm mb-4 line-clamp-3 flex-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+            <p className="text-[#001435] text-sm mb-4 line-clamp-3 flex-1 opacity-80 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed text-justify">
               {product.shortDesc}
             </p>
             {product.price && (

@@ -34,6 +34,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const [isInitialized, setIsInitialized] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const navItemRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
   const pathname = usePathname();
@@ -145,25 +146,81 @@ export default function Header() {
         </nav>
         
         {/* Mobile Navigation */}
-        <Sheet>
-          <SheetTrigger className="lg:hidden p-2" aria-label="Open Menu">
-            <Menu size={24} className="text-[#001435] hover:text-[#003366] transition-colors duration-300" />
+        <Sheet onOpenChange={setIsMobileMenuOpen}>
+          <SheetTrigger className="lg:hidden p-2 relative group focus:outline-none focus:ring-2 focus:ring-[#001435]/20 rounded-md" aria-label="Toggle Menu">
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <div 
+                className={`w-5 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
+                  isMobileMenuOpen 
+                    ? 'rotate-45 translate-y-1.5 bg-[#003366]' 
+                    : 'group-hover:bg-[#003366] group-hover:w-6'
+                }`}
+              ></div>
+              <div 
+                className={`w-5 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out mt-1 ${
+                  isMobileMenuOpen 
+                    ? 'opacity-0 scale-0' 
+                    : 'group-hover:bg-[#003366] group-hover:w-6'
+                }`}
+              ></div>
+              <div 
+                className={`w-5 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out mt-1 ${
+                  isMobileMenuOpen 
+                    ? '-rotate-45 -translate-y-1.5 bg-[#003366]' 
+                    : 'group-hover:bg-[#003366] group-hover:w-6'
+                }`}
+              ></div>
+            </div>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full sm:w-80 pt-12 bg-brand-secondary">
+          <SheetContent 
+            side="right" 
+            className="w-full sm:w-80 pt-20 bg-white/98 backdrop-blur-lg border-l border-gray-200/30 shadow-2xl"
+          >
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-            <nav className="flex flex-col gap-6 mt-8">
-              {navItems.map((item) => (
+            
+            {/* Logo in mobile menu */}
+            <div className="flex justify-center mb-8 pb-6 border-b border-gray-200/50">
+              <Image 
+                src="/logoclouddream.svg" 
+                alt="Cloudream Logo" 
+                width={140} 
+                height={45}
+                className="h-10 w-auto opacity-80"
+              />
+            </div>
+            
+            <nav className="flex flex-col gap-1">
+              {navItems.map((item, index) => (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className={`text-base font-medium tracking-wider text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:translate-x-2 ${
-                    pathname === item.path ? "text-[#001435] font-semibold" : "text-[#001435] opacity-80 hover:opacity-100"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`relative px-6 py-4 text-base font-medium tracking-wide rounded-2xl transition-all duration-300 ease-out group ${
+                    pathname === item.path 
+                      ? "text-white bg-gradient-to-r from-[#001435] to-[#003366] shadow-lg shadow-[#001435]/20" 
+                      : "text-[#001435] hover:bg-[#001435]/5 hover:text-[#003366] hover:shadow-md hover:shadow-[#001435]/10"
                   }`}
+                  style={{
+                    animationDelay: `${index * 80}ms`,
+                    animation: 'slideInFromRight 0.5s ease-out forwards'
+                  }}
                 >
-                  {item.name}
+                  <span className="relative z-10 transition-transform duration-200 group-hover:translate-x-1">
+                    {item.name}
+                  </span>
+                  {pathname !== item.path && (
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#001435]/5 to-[#003366]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  )}
                 </Link>
               ))}
             </nav>
+            
+            {/* Footer in mobile menu */}
+            <div className="absolute bottom-8 left-6 right-6 text-center">
+              <p className="text-xs text-gray-500 opacity-60">
+                © 2024 Cloudream. Premium Sleep Solutions.
+              </p>
+            </div>
           </SheetContent>
         </Sheet>
       </div>

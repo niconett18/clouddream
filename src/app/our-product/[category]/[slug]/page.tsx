@@ -113,7 +113,7 @@ export default async function ProductDetailPage({
               </div>
 
               <div className="prose max-w-none text-gray-700">
-                <p>{product.longDesc}</p>
+                <p className="text-justify">{product.longDesc}</p>
               </div>
 
               {/* Specs */}
@@ -156,7 +156,7 @@ export default async function ProductDetailPage({
                       alt="Shopee Logo"
                       width={80}
                       height={24}
-                      className="object-contain"
+                      className="object-contain max-w-full max-h-full w-auto h-auto"
                     />
                   </Button>
                 ) : (
