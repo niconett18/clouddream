@@ -45,27 +45,27 @@ export default function AboutPage() {
 
       {/* Company Story */}
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">Cerita Kami</h2>
-            <p className="text-[#001435] mb-4 text-justify">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="order-2 lg:order-1">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-[#001435]">Cerita Kami</h2>
+            <p className="text-[#001435] mb-3 md:mb-4 text-sm md:text-base text-justify leading-relaxed">
               Didirikan pada tahun 2015, Cloudream dimulai dengan misi sederhana: menciptakan bantal dan guling yang benar-benar meningkatkan kualitas tidur dan meningkatkan kesejahteraan. Pendiri kami, setelah menderita sakit leher kronis, tidak dapat menemukan bantal yang memberikan dukungan dan kenyamanan yang tepat. Hal ini mengarah pada pengembangan bantal memory foam pertama kami, yang dirancang khusus untuk memberikan keselarasan tulang belakang yang optimal.
             </p>
-            <p className="text-[#001435] mb-4 text-justify">
+            <p className="text-[#001435] mb-3 md:mb-4 text-sm md:text-base text-justify leading-relaxed">
               Apa yang dimulai sebagai solusi untuk masalah pribadi dengan cepat berkembang menjadi perusahaan yang berdedikasi untuk membantu orang lain merasakan tidur yang lebih baik. Hari ini, Cloudream telah memperluas lini produknya untuk mencakup berbagai bantal dan guling yang dirancang untuk posisi tidur, tipe tubuh, dan preferensi kenyamanan yang berbeda.
             </p>
-            <p className="text-[#001435] text-justify">
+            <p className="text-[#001435] text-sm md:text-base text-justify leading-relaxed">
               Kami tetap berkomitmen pada prinsip-prinsip pendiri kami: bahan berkualitas, keahlian ahli, dan kepuasan pelanggan. Setiap produk yang kami buat adalah hasil dari penelitian, pengujian, dan penyempurnaan yang ekstensif untuk memastikan Anda mendapatkan tidur terbaik.
             </p>
           </div>
-          <div className="relative w-full max-w-md mx-auto rounded-lg overflow-hidden">
+          <div className="relative w-full max-w-md mx-auto rounded-lg overflow-hidden order-1 lg:order-2">
             <Image
               src="/about-company.jpg"
               alt="Cloudream Team"
               width={400}
               height={300}
               className="w-full h-auto object-contain"
-              sizes="(max-width: 768px) 100vw, 400px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
             />
           </div>
         </div>
@@ -74,8 +74,8 @@ export default function AboutPage() {
       {/* Mission */}
       <Section className="bg-gray-50/50">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#001435]">Misi Kami</h2>
-          <p className="text-[#001435] text-lg mb-16 text-justify leading-relaxed max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-[#001435] px-4">Misi Kami</h2>
+          <p className="text-[#001435] text-sm md:text-lg mb-12 md:mb-16 text-justify leading-relaxed max-w-3xl mx-auto px-4">
             Di Cloudream, kami percaya bahwa tidur berkualitas adalah fondasi dari kehidupan yang sehat dan produktif. Misi kami adalah menciptakan produk tidur premium yang membantu orang bangun dengan segar, berenergi, dan siap menghadapi hari.
           </p>
           

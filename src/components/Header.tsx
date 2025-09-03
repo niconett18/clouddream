@@ -147,78 +147,84 @@ export default function Header() {
         
         {/* Mobile Navigation */}
         <Sheet onOpenChange={setIsMobileMenuOpen}>
-          <SheetTrigger className="lg:hidden p-2 relative group focus:outline-none focus:ring-2 focus:ring-[#001435]/20 rounded-md" aria-label="Toggle Menu">
-            <div className="w-6 h-6 flex flex-col justify-center items-center">
+          <SheetTrigger className="lg:hidden p-2 relative group focus:outline-none focus:ring-2 focus:ring-[#001435]/20 rounded-lg" aria-label="Toggle Menu">
+            <div className="w-7 h-7 flex flex-col justify-center items-center space-y-1">
               <div 
-                className={`w-5 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
+                className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
                   isMobileMenuOpen 
-                    ? 'rotate-45 translate-y-1.5 bg-[#003366]' 
-                    : 'group-hover:bg-[#003366] group-hover:w-6'
+                    ? 'rotate-45 translate-y-2 bg-[#003366]' 
+                    : 'group-hover:bg-[#003366] group-hover:w-7'
                 }`}
               ></div>
               <div 
-                className={`w-5 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out mt-1 ${
+                className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
                   isMobileMenuOpen 
                     ? 'opacity-0 scale-0' 
-                    : 'group-hover:bg-[#003366] group-hover:w-6'
+                    : 'group-hover:bg-[#003366] group-hover:w-7'
                 }`}
               ></div>
               <div 
-                className={`w-5 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out mt-1 ${
+                className={`w-6 h-0.5 bg-[#001435] rounded-full transition-all duration-300 ease-in-out ${
                   isMobileMenuOpen 
-                    ? '-rotate-45 -translate-y-1.5 bg-[#003366]' 
-                    : 'group-hover:bg-[#003366] group-hover:w-6'
+                    ? '-rotate-45 -translate-y-2 bg-[#003366]' 
+                    : 'group-hover:bg-[#003366] group-hover:w-7'
                 }`}
               ></div>
             </div>
           </SheetTrigger>
           <SheetContent 
             side="right" 
-            className="w-full sm:w-80 pt-20 bg-white/98 backdrop-blur-lg border-l border-gray-200/30 shadow-2xl"
+            className="w-full pt-16 bg-white/95 backdrop-blur-md border-l border-gray-200/50 shadow-xl"
           >
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
             
             {/* Logo in mobile menu */}
-            <div className="flex justify-center mb-8 pb-6 border-b border-gray-200/50">
+            <div className="flex justify-center mb-8 pb-6 border-b border-gray-200/30">
               <Image 
                 src="/logoclouddream.svg" 
                 alt="Cloudream Logo" 
-                width={140} 
-                height={45}
-                className="h-10 w-auto opacity-80"
+                width={160} 
+                height={50}
+                className="h-12 w-auto"
               />
             </div>
             
-            <nav className="flex flex-col gap-1">
+            <nav className="flex flex-col gap-2 px-2">
               {navItems.map((item, index) => (
                 <Link
                   key={item.path}
                   href={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`relative px-6 py-4 text-base font-medium tracking-wide rounded-2xl transition-all duration-300 ease-out group ${
+                  className={`relative px-6 py-4 text-lg font-medium tracking-wide rounded-xl transition-all duration-300 ease-out group text-center ${
                     pathname === item.path 
-                      ? "text-white bg-gradient-to-r from-[#001435] to-[#003366] shadow-lg shadow-[#001435]/20" 
-                      : "text-[#001435] hover:bg-[#001435]/5 hover:text-[#003366] hover:shadow-md hover:shadow-[#001435]/10"
+                      ? "text-white bg-gradient-to-r from-[#001435] to-[#003366] shadow-lg" 
+                      : "text-[#001435] hover:bg-[#001435]/8 hover:text-[#003366] hover:shadow-md"
                   }`}
                   style={{
-                    animationDelay: `${index * 80}ms`,
-                    animation: 'slideInFromRight 0.5s ease-out forwards'
+                    animationDelay: `${index * 100}ms`,
+                    animation: 'slideInFromRight 0.6s ease-out forwards'
                   }}
                 >
                   <span className="relative z-10 transition-transform duration-200 group-hover:translate-x-1">
                     {item.name}
                   </span>
                   {pathname !== item.path && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#001435]/5 to-[#003366]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#001435]/5 to-[#003366]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   )}
                 </Link>
               ))}
             </nav>
             
+            {/* Contact info in mobile menu */}
+            <div className="mt-12 px-6 text-center">
+              <div className="text-sm text-[#001435]/80 mb-2">Hubungi Kami</div>
+              <div className="text-xs text-[#001435]/60">Premium Sleep Solutions</div>
+            </div>
+            
             {/* Footer in mobile menu */}
-            <div className="absolute bottom-8 left-6 right-6 text-center">
-              <p className="text-xs text-gray-500 opacity-60">
-                © 2024 Cloudream. Premium Sleep Solutions.
+            <div className="absolute bottom-6 left-6 right-6 text-center">
+              <p className="text-xs text-gray-500/80">
+                © 2024 Cloudream
               </p>
             </div>
           </SheetContent>

@@ -91,13 +91,13 @@ export default function Home() {
 
       {/* Features Section */}
       <Section>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {features.map((feature, index) => (
             <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow bg-white">
-              <CardContent className="p-8">
+              <CardContent className="p-6 md:p-8">
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-[#001435]">{feature.title}</h3>
-                <p className="text-[#001435] text-justify">{feature.description}</p>
+                <h3 className="text-lg md:text-xl font-bold mb-3 text-[#001435]">{feature.title}</h3>
+                <p className="text-[#001435] text-sm md:text-base text-justify leading-relaxed">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -106,14 +106,14 @@ export default function Home() {
 
       {/* Featured Products */}
       <Section className="bg-[#E8D8C7]/5">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#001435]">Produk Unggulan</h2>
-          <p className="text-[#001435] max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-[#001435] px-4">Produk Unggulan</h2>
+          <p className="text-[#001435] max-w-2xl mx-auto px-4 text-sm md:text-base leading-relaxed">
             Temukan produk tidur premium paling populer kami, dirancang untuk kenyamanan dan dukungan
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
           {featuredProducts.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
@@ -122,14 +122,14 @@ export default function Home() {
 
       {/* Trusted by Luxury Hospitality Brands */}
       <Section>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#001435]">Dipercaya oleh Brand Perhotelan Mewah</h2>
-          <p className="text-[#001435] max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-[#001435] px-4">Dipercaya oleh Brand Perhotelan Mewah</h2>
+          <p className="text-[#001435] max-w-2xl mx-auto px-4 text-sm md:text-base leading-relaxed">
             Cloudream telah menjadi pilihan utama hotel-hotel mewah terkemuka untuk memberikan pengalaman tidur yang tak terlupakan bagi tamu mereka
           </p>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center px-4">
           <div className="relative w-full max-w-4xl">
             <Image
               src="/Trusted By Luxury Hospitality Brands.jpg"
@@ -137,13 +137,14 @@ export default function Home() {
               width={1200}
               height={400}
               className="w-full h-auto object-contain rounded-lg"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 95vw, (max-width: 1200px) 90vw, 80vw"
+              quality={95}
             />
           </div>
         </div>
 
-        <div className="text-center mt-8">
-          <p className="text-[#001435] text-lg font-medium">
+        <div className="text-center mt-6 md:mt-8">
+          <p className="text-[#001435] text-base md:text-lg font-medium px-4">
             Bergabunglah dengan brand-brand ternama yang telah mempercayai kualitas Cloudream
           </p>
         </div>
@@ -151,16 +152,16 @@ export default function Home() {
 
       {/* CTA Section */}
       <Section className="bg-[#E8D8C7]/10">
-        <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#001435]">Siap untuk Tidur Lebih Baik?</h2>
-          <p className="text-[#001435] mb-8 text-justify">
+        <div className="text-center max-w-3xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4 text-[#001435]">Siap untuk Tidur Lebih Baik?</h2>
+          <p className="text-[#001435] mb-6 md:mb-8 text-sm md:text-base text-justify leading-relaxed">
             Ubah pengalaman tidur Anda dengan rangkaian premium bantal dan guling Cloudream. Perjalanan Anda menuju tidur yang lebih baik dimulai di sini.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="bg-[#001435] hover:bg-[#001435] text-white">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
+            <Button asChild size="lg" className="bg-[#001435] hover:bg-[#001435] text-white w-full sm:w-auto">
               <Link href="/our-product">Jelajahi Produk</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-[#001435] text-[#001435] hover:bg-[#E8D8C7]/10">
+            <Button asChild variant="outline" size="lg" className="border-[#001435] text-[#001435] hover:bg-[#E8D8C7]/10 w-full sm:w-auto">
               <Link href="/contact">Hubungi Kami</Link>
             </Button>
           </div>

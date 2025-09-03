@@ -18,7 +18,7 @@ export default function Section({
   delay = 0,
 }: SectionProps) {
   const content = withContainer ? (
-    <div className="container mx-auto px-4 md:px-8">{children}</div>
+    <div className="container mx-auto px-4 sm:px-6 md:px-8">{children}</div>
   ) : (
     children
   );
@@ -26,7 +26,7 @@ export default function Section({
   return (
     <section
       id={id}
-      className={`py-16 md:py-20 ${className}`}
+      className={`py-12 md:py-16 lg:py-20 ${className}`}
     >
       {content}
     </section>

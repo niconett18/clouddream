@@ -279,3 +279,116 @@ body {
 .hamburger-line:hover {
   transform: scaleX(1.1);
 }
+
+/* Mobile-first responsive improvements */
+@media (max-width: 640px) {
+  .mobile-optimized {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .mobile-text-size {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  
+  .mobile-heading {
+    font-size: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .mobile-image-container {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  
+  .mobile-card-spacing {
+    margin-bottom: 1rem;
+  }
+  
+  .mobile-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .mobile-section-padding {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Mobile typography improvements */
+  .hero-title {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  .section-title {
+    font-size: 1.5rem !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Mobile spacing */
+  .mobile-spacing-sm {
+    margin-bottom: 0.75rem;
+  }
+  
+  .mobile-spacing-md {
+    margin-bottom: 1rem;
+  }
+  
+  /* Mobile text alignment */
+  .mobile-text-left {
+    text-align: left;
+  }
+  
+  .mobile-text-center {
+    text-align: center;
+  }
+}
+
+/* Enhanced mobile menu styles */
+@media (max-width: 1024px) {
+  .mobile-menu-overlay {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+  }
+  
+  .mobile-menu-item {
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .mobile-menu-item:hover {
+    background: rgba(0, 20, 53, 0.05);
+    transform: translateX(4px);
+  }
+}
+
+/* Better image scaling for mobile */
+@media (max-width: 768px) {
+  .hero-image-mobile {
+    object-position: center;
+    transform: scale(1.05);
+  }
+  
+  .product-image-mobile {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .brand-image-mobile {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Touch-friendly button sizes */
+@media (max-width: 640px) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

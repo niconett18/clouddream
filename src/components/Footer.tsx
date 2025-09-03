@@ -5,13 +5,13 @@ import { Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-[#E8D8C7]/5 pt-16 pb-8">
-      <div className="container mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-[#E8D8C7]/5 pt-12 md:pt-16 pb-6 md:pb-8">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Company Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-[#001435]">Cloudream</h3>
-            <p className="text-[#001435] mb-6">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-[#001435]">Cloudream</h3>
+            <p className="text-[#001435] mb-4 md:mb-6 text-sm md:text-base leading-relaxed">
               Bantal dan guling premium yang dibuat untuk tidur malam yang sempurna.
             </p>
             <div className="flex space-x-4">
@@ -19,7 +19,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:scale-110"
+                className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:scale-110 touch-target"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
@@ -28,7 +28,7 @@ export default function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:scale-110"
+                className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:scale-110 touch-target"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
@@ -37,7 +37,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:scale-110"
+                className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:scale-110 touch-target"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
@@ -47,8 +47,8 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#001435]">Tautan Cepat</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-[#001435]">Tautan Cepat</h3>
+            <ul className="space-y-2 md:space-y-3">
               {[
                 { name: "Beranda", path: "/" },
                 { name: "Tentang Kami", path: "/about" },
@@ -58,7 +58,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:translate-x-1"
+                    className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:translate-x-1 text-sm md:text-base touch-target block py-1"
                   >
                     {link.name}
                   </Link>
@@ -69,8 +69,8 @@ export default function Footer() {
 
           {/* Products */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#001435]">Produk</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-[#001435]">Produk</h3>
+            <ul className="space-y-2 md:space-y-3">
               {[
                 { name: "Bantal", path: "/our-product/pillow" },
                 { name: "Guling", path: "/our-product/bolster" },
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:translate-x-1"
+                    className="text-[#001435] hover:text-[#003366] transition-all duration-300 ease-in-out transform hover:translate-x-1 text-sm md:text-base touch-target block py-1"
                   >
                     {link.name}
                   </Link>
@@ -88,28 +88,28 @@ export default function Footer() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-[#001435]">Hubungi Kami</h3>
-            <ul className="space-y-4">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4 text-[#001435]">Hubungi Kami</h3>
+            <ul className="space-y-3 md:space-y-4">
               <li className="flex items-start space-x-3">
                 <MapPin className="text-[#001435] mt-1 flex-shrink-0" size={18} />
-                <span className="text-[#001435]">
+                <span className="text-[#001435] text-sm md:text-base leading-relaxed">
                   Jl. Kenyamanan No. 123, Kota Tidur, Jakarta 12345
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="text-[#001435] flex-shrink-0" size={18} />
-                <span className="text-[#001435]">+62 21 1234-5678</span>
+                <span className="text-[#001435] text-sm md:text-base">+62 21 1234-5678</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="text-[#001435] flex-shrink-0" size={18} />
-                <span className="text-[#001435]">info@clouddream.com</span>
+                <span className="text-[#001435] text-sm md:text-base">info@clouddream.com</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-[#E8D8C7] mt-16 pt-8 text-center text-[#001435] text-sm">
+        <div className="border-t border-[#E8D8C7] mt-12 md:mt-16 pt-6 md:pt-8 text-center text-[#001435] text-xs md:text-sm">
           <p>© {new Date().getFullYear()} Cloudream. Semua hak dilindungi undang-undang.</p>
         </div>
       </div>
