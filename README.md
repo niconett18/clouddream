@@ -1,6 +1,6 @@
-# DD Pillow Website
+# Cloudream Website
 
-A production-ready company website for DD Pillow, a premium pillow and bolster brand. Built with Next.js, TypeScript, and Tailwind CSS.
+A production-ready company website for Cloudream, a premium pillow and bolster brand. Built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Features
 
@@ -120,7 +120,7 @@ To change the brand colors:
 
 ```javascript
 colors: {
-  // DD Pillow brand color palette
+  // Cloudream brand color palette
   brand: {
     primary: "#7E6148",      // Warm brown - main brand color
     secondary: "#C4B2A0",    // Light beige - secondary brand color

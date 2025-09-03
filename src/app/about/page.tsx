@@ -7,7 +7,7 @@ import { Check, Award, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Tentang Kami",
-  description: "Pelajari tentang DD Pillow, misi kami, dan komitmen kami terhadap produk tidur berkualitas",
+  description: "Pelajari tentang Cloudream, misi kami, dan komitmen kami terhadap produk tidur berkualitas",
 };
 
 const certifications = [
@@ -37,9 +37,10 @@ export default function AboutPage() {
   return (
     <>
       <Hero
-        title="Tentang DD Pillow"
+        title="Tentang Cloudream"
         subtitle="Cerita, misi, dan komitmen kami terhadap kualitas"
         height="medium"
+        imageUrl=""
       />
 
       {/* Company Story */}
@@ -48,22 +49,23 @@ export default function AboutPage() {
           <div>
             <h2 className="text-3xl font-bold mb-6">Cerita Kami</h2>
             <p className="text-[#001435] mb-4">
-              Didirikan pada tahun 2015, DD Pillow dimulai dengan misi sederhana: menciptakan bantal dan guling yang benar-benar meningkatkan kualitas tidur dan meningkatkan kesejahteraan. Pendiri kami, setelah menderita sakit leher kronis, tidak dapat menemukan bantal yang memberikan dukungan dan kenyamanan yang tepat. Hal ini mengarah pada pengembangan bantal memory foam pertama kami, yang dirancang khusus untuk memberikan keselarasan tulang belakang yang optimal.
+              Didirikan pada tahun 2015, Cloudream dimulai dengan misi sederhana: menciptakan bantal dan guling yang benar-benar meningkatkan kualitas tidur dan meningkatkan kesejahteraan. Pendiri kami, setelah menderita sakit leher kronis, tidak dapat menemukan bantal yang memberikan dukungan dan kenyamanan yang tepat. Hal ini mengarah pada pengembangan bantal memory foam pertama kami, yang dirancang khusus untuk memberikan keselarasan tulang belakang yang optimal.
             </p>
             <p className="text-[#001435] mb-4">
-              Apa yang dimulai sebagai solusi untuk masalah pribadi dengan cepat berkembang menjadi perusahaan yang berdedikasi untuk membantu orang lain merasakan tidur yang lebih baik. Hari ini, DD Pillow telah memperluas lini produknya untuk mencakup berbagai bantal dan guling yang dirancang untuk posisi tidur, tipe tubuh, dan preferensi kenyamanan yang berbeda.
+              Apa yang dimulai sebagai solusi untuk masalah pribadi dengan cepat berkembang menjadi perusahaan yang berdedikasi untuk membantu orang lain merasakan tidur yang lebih baik. Hari ini, Cloudream telah memperluas lini produknya untuk mencakup berbagai bantal dan guling yang dirancang untuk posisi tidur, tipe tubuh, dan preferensi kenyamanan yang berbeda.
             </p>
             <p className="text-[#001435]">
               Kami tetap berkomitmen pada prinsip-prinsip pendiri kami: bahan berkualitas, keahlian ahli, dan kepuasan pelanggan. Setiap produk yang kami buat adalah hasil dari penelitian, pengujian, dan penyempurnaan yang ekstensif untuk memastikan Anda mendapatkan tidur terbaik.
             </p>
           </div>
-          <div className="relative h-[400px] rounded-lg overflow-hidden">
+          <div className="relative w-full max-w-md mx-auto rounded-lg overflow-hidden">
             <Image
               src="/about-company.jpg"
-              alt="DD Pillow Team"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="Cloudream Team"
+              width={400}
+              height={300}
+              className="w-full h-auto object-contain"
+              sizes="(max-width: 768px) 100vw, 400px"
             />
           </div>
         </div>
@@ -74,7 +76,7 @@ export default function AboutPage() {
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Misi Kami</h2>
           <p className="text-[#001435] text-lg mb-6">
-            Di DD Pillow, kami percaya bahwa tidur berkualitas adalah fondasi dari kehidupan yang sehat dan produktif. Misi kami adalah menciptakan produk tidur premium yang membantu orang bangun dengan segar, berenergi, dan siap menghadapi hari.
+            Di Cloudream, kami percaya bahwa tidur berkualitas adalah fondasi dari kehidupan yang sehat dan produktif. Misi kami adalah menciptakan produk tidur premium yang membantu orang bangun dengan segar, berenergi, dan siap menghadapi hari.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <div className="flex flex-col items-center text-center">
@@ -113,8 +115,8 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-lg overflow-hidden">
             <Image
-              src="/factory.jpg"
-              alt="DD Pillow Factory"
+              src="/certified.jpg"
+              alt="Cloudream Certification"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -140,7 +142,7 @@ export default function AboutPage() {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Sertifikasi Kami</h2>
           <p className="text-[#001435] max-w-2xl mx-auto">
-            DD Pillow memenuhi dan melampaui standar industri untuk kualitas, keamanan, dan keberlanjutan
+            Cloudream memenuhi dan melampaui standar industri untuk kualitas, keamanan, dan keberlanjutan
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

@@ -26,7 +26,7 @@ export default function Hero({
 
   return (
     <section
-      className={`relative flex items-center justify-center ${heightClass[height]} bg-gradient-to-r from-[#E8D8C7]/10 to-[#E8D8C7]/5 overflow-hidden`}
+      className={`relative flex items-center justify-center ${heightClass[height]} bg-white overflow-hidden`}
     >
       {imageUrl && (
         <div className="absolute inset-0 z-0">
@@ -34,7 +34,7 @@ export default function Hero({
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${imageUrl})` }}
           />
-          <div className="absolute inset-0 bg-white/70" />
+          <div className="absolute inset-0 bg-white/25" />
         </div>
       )}
 

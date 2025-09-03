@@ -20,13 +20,13 @@ export default function ProductCard({ product, index }: ProductCardProps) {
         href={`/our-product/${product.category}/${product.slug}`}
         className="block h-full group"
       >
-        <Card className="overflow-hidden h-full flex flex-col border border-gray-100 hover:border-[#001435] hover:shadow-xl transition-all duration-500 ease-in-out transform group-hover:scale-105">
-          <div className="relative aspect-square w-full overflow-hidden bg-gray-50">
+        <Card className="overflow-hidden h-full flex flex-col border border-gray-100 hover:border-[#001435] hover:shadow-xl transition-all duration-500 ease-in-out transform group-hover:scale-105 p-0">
+          <div className="relative aspect-square w-full overflow-hidden">
             <Image
               src={product.images[0] || "/placeholder.jpg"}
               alt={product.name}
               fill
-              className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+              className="object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-110"
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
               priority={index < 4}
               quality={90}

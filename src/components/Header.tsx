@@ -1,5 +1,12 @@
 "use client";
 
+const navigation = [
+  { name: "BERANDA", path: "/" },
+  { name: "PRODUK KAMI", path: "/our-product" },
+  { name: "TENTANG KAMI", path: "/about" },
+  { name: "KONTAK", path: "/contact" },
+];
+
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
@@ -20,7 +27,6 @@ const navItems = [
   { name: "BERANDA", path: "/" },
   { name: "PRODUK KAMI", path: "/our-product" },
   { name: "TENTANG KAMI", path: "/about" },
-  { name: "PENGETAHUAN & PERAWATAN PRODUK", path: "/product-knowledge" },
   { name: "KONTAK", path: "/contact" },
 ];
 
@@ -91,7 +97,7 @@ export default function Header() {
         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity duration-300">
           <Image 
             src="/logoclouddream.svg" 
-            alt="DD Pillow Logo" 
+            alt="Cloudream Logo" 
             width={180} 
             height={58}
             className="h-14 w-auto"

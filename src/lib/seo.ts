@@ -2,28 +2,28 @@ import { Metadata } from 'next';
 
 export const defaultSEO: Metadata = {
   title: {
-    template: '%s | DD Pillow',
-    default: 'DD Pillow | Premium Pillows and Bolsters'
+    template: '%s | Cloudream',
+    default: 'Cloudream | Premium Pillows and Bolsters'
   },
-  description: "Experience ultimate comfort with DD Pillow's premium range of pillows and bolsters. Handcrafted with quality materials for a better night's sleep.",
+  description: "Experience ultimate comfort with Cloudream's premium range of pillows and bolsters. Handcrafted with quality materials for a better night's sleep.",
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ddpillow.com/',
-    siteName: 'DD Pillow',
+    url: 'https://clouddream.com/',
+    siteName: 'Cloudream',
     images: [
       {
-        url: 'https://ddpillow.com/og-image.jpg',
+        url: 'https://clouddream.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'DD Pillow - Premium Pillows and Bolsters',
+        alt: 'Cloudream - Premium Pillows and Bolsters',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    creator: '@ddpillow',
-    site: '@ddpillow',
+    creator: '@clouddream',
+    site: '@clouddream',
   },
   icons: {
     icon: '/favicon.ico',
@@ -43,7 +43,7 @@ export const productJsonLd = (product: {
     '@type': 'Product',
     name: product.name,
     description: product.description,
-    image: product.images.map(img => `https://ddpillow.com${img}`),
+    image: product.images.map(img => `https://clouddream.com${img}`),
     sku: product.sku,
     ...(product.price && {
       offers: {
@@ -51,7 +51,7 @@ export const productJsonLd = (product: {
         price: product.price,
         priceCurrency: 'USD',
         availability: 'https://schema.org/InStock',
-        url: `https://ddpillow.com${product.url}`,
+        url: `https://clouddream.com${product.url}`,
       },
     }),
   };
@@ -60,26 +60,26 @@ export const productJsonLd = (product: {
 export const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'DD Pillow',
-  url: 'https://ddpillow.com',
-  logo: 'https://ddpillow.com/logo.png',
+  name: 'Cloudream',
+  url: 'https://clouddream.com',
+  logo: 'https://clouddream.com/logo.png',
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+1-555-123-4567',
+    telephone: '+62-21-1234-5678',
     contactType: 'customer service',
-    availableLanguage: ['English'],
+    availableLanguage: ['Indonesian'],
   },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '123 Comfort Lane',
-    addressLocality: 'Sleep City',
-    addressRegion: 'CA',
-    postalCode: '90210',
-    addressCountry: 'US',
+    streetAddress: 'Jl. Kenyamanan No. 123',
+    addressLocality: 'Kota Tidur',
+    addressRegion: 'Jakarta',
+    postalCode: '12345',
+    addressCountry: 'ID',
   },
   sameAs: [
-    'https://www.facebook.com/ddpillow',
-    'https://www.instagram.com/ddpillow',
-    'https://twitter.com/ddpillow',
+    'https://www.facebook.com/clouddream',
+    'https://www.instagram.com/clouddream',
+    'https://twitter.com/clouddream',
   ],
 };

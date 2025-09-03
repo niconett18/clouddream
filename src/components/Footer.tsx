@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#001435]">DD Pillow</h3>
+            <h3 className="text-xl font-bold mb-4 text-[#001435]">Cloudream</h3>
             <p className="text-[#001435] mb-6">
               Bantal dan guling premium yang dibuat untuk tidur malam yang sempurna.
             </p>
@@ -74,7 +74,6 @@ export default function Footer() {
               {[
                 { name: "Bantal", path: "/our-product/pillow" },
                 { name: "Guling", path: "/our-product/bolster" },
-                { name: "Perawatan Produk", path: "/product-knowledge" },
               ].map((link) => (
                 <li key={link.path}>
                   <Link
@@ -104,14 +103,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="text-[#001435] flex-shrink-0" size={18} />
-                <span className="text-[#001435]">info@ddpillow.com</span>
+                <span className="text-[#001435]">info@clouddream.com</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-[#E8D8C7] mt-16 pt-8 text-center text-[#001435] text-sm">
-          <p>© {new Date().getFullYear()} DD Pillow. Semua hak dilindungi undang-undang.</p>
+          <p>© {new Date().getFullYear()} Cloudream. Semua hak dilindungi undang-undang.</p>
         </div>
       </div>
     </footer>

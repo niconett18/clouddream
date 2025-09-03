@@ -16,15 +16,15 @@ export async function generateMetadata({
   
   if (category !== "pillow" && category !== "bolster") {
     return {
-      title: "Category Not Found",
+      title: "Kategori Tidak Ditemukan",
     };
   }
 
-  const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1) + "s";
+  const categoryTitle = category === "pillow" ? "Bantal" : "Guling";
   
   return {
     title: categoryTitle,
-    description: `Explore our range of premium ${categoryTitle.toLowerCase()} designed for exceptional comfort and support`,
+    description: `Jelajahi rangkaian ${categoryTitle.toLowerCase()} premium kami yang dirancang untuk kenyamanan dan dukungan luar biasa`,
   };
 }
 
@@ -40,14 +40,15 @@ export default async function CategoryPage({
   }
 
   const products = getProductsByCategory(category as "pillow" | "bolster");
-  const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1) + "s";
+  const categoryTitle = category === "pillow" ? "Bantal" : "Guling";
 
   return (
     <>
       <Hero
         title={categoryTitle}
-        subtitle={`Our premium range of ${categoryTitle.toLowerCase()} designed for exceptional comfort and support`}
+        subtitle={`Rangkaian ${categoryTitle.toLowerCase()} premium kami yang dirancang untuk kenyamanan dan dukungan luar biasa`}
         height="medium"
+        imageUrl=""
       />
 
       <Section>
@@ -57,13 +58,13 @@ export default async function CategoryPage({
             <ol className="flex items-center space-x-1">
               <li>
                 <Link href="/" className="text-gray-500 hover:text-accent">
-                  Home
+                  Beranda
                 </Link>
               </li>
               <li className="flex items-center space-x-1">
                 <ChevronRight className="h-4 w-4 text-gray-400" />
                 <Link href="/our-product" className="text-gray-500 hover:text-accent">
-                  Our Products
+                  Produk Kami
                 </Link>
               </li>
               <li className="flex items-center space-x-1">
@@ -77,8 +78,8 @@ export default async function CategoryPage({
             <h2 className="text-3xl font-bold mb-4">{categoryTitle}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               {category === "pillow"
-                ? "Our premium pillows are designed to provide exceptional comfort and support for a better night's sleep."
-                : "Our supportive bolsters help maintain proper alignment and relieve pressure for improved sleep quality."}
+                ? "Bantal premium kami dirancang untuk memberikan kenyamanan dan dukungan luar biasa untuk tidur malam yang lebih baik."
+                : "Guling pendukung kami membantu menjaga keselarasan yang tepat dan mengurangi tekanan untuk meningkatkan kualitas tidur."}
             </p>
           </div>
 

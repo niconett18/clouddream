@@ -28,6 +28,7 @@ export default function OurProductPage() {
         title="Produk Kami"
         subtitle="Bantal dan guling premium yang dibuat untuk kenyamanan dan dukungan luar biasa"
         height="medium"
+        imageUrl=""
       />
 
       <Section>
