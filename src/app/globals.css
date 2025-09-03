@@ -392,12 +392,3 @@ body {
     min-width: 44px;
   }
 }
-
-/* Top-drop mobile menu structural utilities (no color changes beyond neutral border) */
-@keyframes slideDown { from { transform: scaleY(0); opacity:0; } to { transform: scaleY(1); opacity:1; } }
-.animate-slideDown { animation: slideDown 160ms ease-out; transform-origin: top; }
-.menu-row { display:block; padding:14px 0; border-top:1px solid rgba(0,0,0,0.08); letter-spacing:0.02em; font-weight:500; }
-.menu-row:first-of-type { border-top:none; }
-.submenu-row { display:block; padding:12px 0; border-top:1px dashed rgba(0,0,0,0.1); font-size:0.875rem; }
-img, video { max-width:100%; height:auto; object-fit:contain; }
-html, body { overflow-x:hidden; }

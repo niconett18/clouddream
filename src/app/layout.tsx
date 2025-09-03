@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="id">
       <body className={`${inter.variable} font-sans antialiased`}>
         <Header />
-        <main className="pt-20 mx-auto max-w-screen-xl px-4 sm:px-6 space-y-8 sm:space-y-12">
+        <main className="pt-20">
           {children}
         </main>
         <Footer />
