@@ -3,6 +3,7 @@
 const navigation = [
   { name: "BERANDA", path: "/" },
   { name: "PRODUK KAMI", path: "/our-product" },
+  { name: "PILIH PRODUK", path: "/selector" },
   { name: "TENTANG KAMI", path: "/about" },
   { name: "KONTAK", path: "/contact" },
 ];
@@ -25,6 +26,7 @@ import {
 const navItems = [
   { name: "BERANDA", path: "/" },
   { name: "PRODUK KAMI", path: "/our-product" },
+  { name: "PILIH PRODUK", path: "/selector" },
   { name: "TENTANG KAMI", path: "/about" },
   { name: "KONTAK", path: "/contact" },
 ];

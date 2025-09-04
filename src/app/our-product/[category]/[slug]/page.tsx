@@ -96,7 +96,7 @@ export default async function ProductDetailPage({
                         <p className="text-lg text-gray-500 line-through">
                           Rp {product.originalPrice.toLocaleString('id-ID')}
                         </p>
-                        <p className="text-2xl font-bold text-accent">
+                        <p className="text-2xl font-bold text-[#001435]">
                           Rp {product.price.toLocaleString('id-ID')}
                         </p>
                         <div className="inline-block bg-red-100 text-red-800 text-sm font-medium px-2 py-1 rounded-lg">
@@ -104,7 +104,7 @@ export default async function ProductDetailPage({
                         </div>
                       </div>
                     ) : (
-                      <p className="text-2xl font-bold text-accent">
+                      <p className="text-2xl font-bold text-[#001435]">
                         Rp {product.price.toLocaleString('id-ID')}
                       </p>
                     )}
@@ -150,14 +150,21 @@ export default async function ProductDetailPage({
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 {product.shopeeLink ? (
-                  <Button size="lg" className="gap-2 bg-orange-500 hover:bg-orange-600">
-                    <Image
-                      src="/shopeelogo.png"
-                      alt="Shopee Logo"
-                      width={80}
-                      height={24}
-                      className="object-contain max-w-full max-h-full w-auto h-auto"
-                    />
+                  <Button asChild size="lg" className="gap-2 bg-orange-500 hover:bg-orange-600">
+                    <a
+                      href={product.shopeeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Beli ${product.name} di Shopee`}
+                    >
+                      <Image
+                        src="/shopeelogo.png"
+                        alt="Shopee Logo"
+                        width={80}
+                        height={24}
+                        className="object-contain max-w-full max-h-full w-auto h-auto"
+                      />
+                    </a>
                   </Button>
                 ) : (
                   <Button asChild size="lg" className="gap-2">

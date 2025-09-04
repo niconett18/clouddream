@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+the import { Metadata } from "next";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
@@ -116,14 +116,18 @@ export default function AboutPage() {
       {/* Factory & Quality */}
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1 relative h-[400px] rounded-lg overflow-hidden">
-            <Image
-              src="/certified.jpg"
-              alt="Cloudream Certification"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+          <div className="order-2 lg:order-1 relative w-full max-w-md lg:max-w-none mx-auto rounded-lg overflow-hidden bg-white/40 p-2 lg:p-0 flex items-center justify-center">
+            {/* Mobile: contain (no crop). Desktop: cover (fill height). */}
+            <div className="relative w-full h-auto lg:h-[400px]">
+              <Image
+                src="/certified.jpg"
+                alt="Cloudream Certification"
+                fill
+                className="object-contain lg:object-cover rounded-md"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+                priority
+              />
+            </div>
           </div>
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl font-bold mb-6">Pabrik & Standar Kualitas Kami</h2>

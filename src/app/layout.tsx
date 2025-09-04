@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import FloatingSelector from "@/components/FloatingSelector";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <ScrollToTop />
+        <FloatingSelector />
       </body>
     </html>
   );

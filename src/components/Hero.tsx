@@ -20,13 +20,16 @@ export default function Hero({
   title,
   subtitle,
   showCta = false,
-  imageUrl = "/hero-bg.jpg",
-  mobileImageUrl = "/mobile-herobg.jpg",
+  imageUrl,
+  mobileImageUrl,
   desktopObjectPosition = 'center center',
   mobileObjectPosition,
   containOnDesktop = false,
   height = "large",
 }: HeroProps) {
+  // Always use unified hero background for every page now
+  const finalImageUrl = "/herobg-otherpage.png";
+  const finalMobileImageUrl = "/herobg-otherpage.png";
   const heightClass = {
     small: "min-h-[40vh] md:min-h-[30vh]",
     medium: "min-h-[60vh] md:min-h-[50vh]",
@@ -34,34 +37,32 @@ export default function Hero({
   };
 
   return (
-    <section className={`relative flex items-center justify-center ${heightClass[height]} bg-white`}>
-      {imageUrl && (
-        <div className="absolute inset-0 -z-10">
-          {/* Mobile specific image */}
-          <Image
-            src={mobileImageUrl || imageUrl}
-            alt="Hero background"
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, 50vw"
-            className="block sm:hidden object-cover w-full h-full"
-            style={mobileObjectPosition ? { objectPosition: mobileObjectPosition } : undefined}
-          />
-          {/* Desktop / tablet image */}
-          <Image
-            src={imageUrl}
-            alt="Hero background"
-            fill
-            priority
-            sizes="(max-width: 640px) 100vw, 100vw"
-            className={`hidden sm:block w-full h-full ${containOnDesktop ? 'object-contain md:object-contain bg-white' : 'object-cover'}`}
-            style={{ objectPosition: desktopObjectPosition }}
-          />
-          <div className="absolute inset-0 bg-white/20 md:bg-white/25" />
-        </div>
-      )}
+    <section className={`relative flex items-center justify-center ${heightClass[height]}`}>
+      <div className="absolute inset-0 z-0">
+        {/* Mobile background */}
+        <Image
+          src={finalMobileImageUrl}
+          alt="Hero background"
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, 50vw"
+          className="block sm:hidden object-cover w-full h-full"
+          style={mobileObjectPosition ? { objectPosition: mobileObjectPosition } : undefined}
+        />
+        {/* Desktop / tablet background always cover (avoid white gaps) */}
+        <Image
+          src={finalImageUrl}
+          alt="Hero background"
+          fill
+          priority
+          sizes="(max-width: 640px) 100vw, 100vw"
+          className="hidden sm:block w-full h-full object-cover"
+          style={{ objectPosition: desktopObjectPosition }}
+        />
+  {/* Removed overlay to ensure full visibility of background image. */}
+      </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 py-12 sm:py-16 flex flex-col items-center sm:items-start text-center sm:text-left max-w-2xl">
+  <div className="container mx-auto px-4 sm:px-6 relative z-10 py-12 sm:py-16 flex flex-col items-center sm:items-start text-center sm:text-left max-w-2xl">
         <h1
           className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#001435] mb-4 md:mb-6 animate-fade-in-up leading-tight drop-shadow-[0_2px_4px_rgba(255,255,255,0.6)]"
         >
@@ -83,6 +84,9 @@ export default function Hero({
             style={{ animationDelay: "0.4s" }}
           >
             <Button asChild size="lg" className="bg-[#001435] hover:bg-[#003366] w-full sm:w-auto">
+              <Link href="/selector">PILIH PRODUK IDEAL</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-[#001435] text-[#001435] hover:bg-[#001435] hover:text-white w-full sm:w-auto">
               <Link href="/our-product">JELAJAHI PRODUK</Link>
             </Button>
           </div>
