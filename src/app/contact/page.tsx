@@ -15,7 +15,6 @@ export default function ContactPage() {
         title="Hubungi Kami"
         subtitle="Kami ingin mendengar dari Anda. Hubungi kami untuk pertanyaan atau informasi apa pun."
         height="medium"
-        imageUrl=""
       />
 
       <Section>

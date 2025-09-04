@@ -48,7 +48,6 @@ export default async function CategoryPage({
         title={categoryTitle}
         subtitle={`Rangkaian ${categoryTitle.toLowerCase()} premium kami yang dirancang untuk kenyamanan dan dukungan luar biasa`}
         height="medium"
-        imageUrl=""
       />
 
       <Section>

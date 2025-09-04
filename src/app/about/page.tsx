@@ -39,7 +39,6 @@ export default function AboutPage() {
         title="Tentang Cloudream"
         subtitle="Cerita, misi, dan komitmen kami terhadap kualitas"
         height="medium"
-        imageUrl=""
       />
 
       {/* Company Story */}

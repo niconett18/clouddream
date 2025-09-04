@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
-import CategoryCard from "@/components/CategoryCard";
 import ProductCard from "@/components/ProductCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
@@ -87,11 +86,8 @@ export default function Home() {
         title="Rasakan Tidur Malam yang Sempurna"
         subtitle="Bantal dan guling premium yang dibuat untuk kenyamanan dan dukungan terbaik"
         showCta={true}
-        mobileImageUrl="/mobile-herobg.jpg"
-        imageUrl="/hero-bg.jpg"
         desktopObjectPosition="center center"
         mobileObjectPosition="center center"
-        containOnDesktop={true}
       />      {/* Features Section */}
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 lg:gap-12">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
+import { Instagram, Phone, Mail, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
