@@ -1,4 +1,4 @@
-the import { Metadata } from "next";
+import { Metadata } from "next";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
