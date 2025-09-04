@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Hero from "@/components/Hero";
 import Section from "@/components/Section";
 import ImageGallery from "@/components/ImageGallery";
 import { Button } from "@/components/ui/button";

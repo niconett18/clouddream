@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Hubungi Kami",

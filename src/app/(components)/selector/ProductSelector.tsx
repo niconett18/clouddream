@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { QUESTIONS, Question, Answer } from './questions';
+import { QUESTIONS, Answer } from './questions';
 import { getRecommendations, UserAnswers, Recommendation } from './recommendation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';

@@ -8,23 +8,17 @@ interface HeroProps {
   title: string;
   subtitle?: string;
   showCta?: boolean;
-  imageUrl?: string;
-  mobileImageUrl?: string; // optional mobile-specific background
   height?: "small" | "medium" | "large";
-  desktopObjectPosition?: string; // e.g. 'left center', '50% 30%'
-  mobileObjectPosition?: string; // override for mobile if subject needs centering differently
-  containOnDesktop?: boolean; // show full image on >= md screens (object-contain) so subject isn't cropped
+  desktopObjectPosition?: string;
+  mobileObjectPosition?: string;
 }
 
 export default function Hero({
   title,
   subtitle,
   showCta = false,
-  imageUrl,
-  mobileImageUrl,
   desktopObjectPosition = 'center center',
   mobileObjectPosition,
-  containOnDesktop = false,
   height = "large",
 }: HeroProps) {
   // Always use unified hero background for every page now

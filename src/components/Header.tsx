@@ -1,27 +1,12 @@
 "use client";
 
-const navigation = [
-  { name: "BERANDA", path: "/" },
-  { name: "PRODUK KAMI", path: "/our-product" },
-  { name: "PILIH PRODUK", path: "/selector" },
-  { name: "TENTANG KAMI", path: "/about" },
-  { name: "KONTAK", path: "/contact" },
-];
 
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 // Removed Sheet (side drawer) in favor of custom top-drop menu
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 
 const navItems = [
   { name: "BERANDA", path: "/" },
@@ -32,7 +17,6 @@ const navItems = [
 ];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const [isInitialized, setIsInitialized] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,14 +26,6 @@ export default function Header() {
   const navItemRefs = useRef<{ [key: string]: HTMLAnchorElement | null }>({});
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     // Set initial underline position for active item with a small delay

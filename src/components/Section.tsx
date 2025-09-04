@@ -5,8 +5,6 @@ interface SectionProps {
   className?: string;
   id?: string;
   withContainer?: boolean;
-  withMotion?: boolean;
-  delay?: number;
 }
 
 export default function Section({
@@ -14,8 +12,6 @@ export default function Section({
   className = "",
   id,
   withContainer = true,
-  withMotion = true,
-  delay = 0,
 }: SectionProps) {
   const content = withContainer ? (
     <div className="container mx-auto px-4 sm:px-6 md:px-8">{children}</div>

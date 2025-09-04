@@ -11,7 +11,6 @@ interface CategoryCardProps {
   imageUrl: string;
   title: string;
   description: string;
-  delay?: number;
 }
 
 export default function CategoryCard({
@@ -19,7 +18,6 @@ export default function CategoryCard({
   imageUrl,
   title,
   description,
-  delay = 0,
 }: CategoryCardProps) {
   return (
     <div className="h-full">

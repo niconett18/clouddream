@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Section from "@/components/Section";
-import { Card, CardContent } from "@/components/ui/card";
 import { Check, Award, Shield } from "lucide-react";
 
 export const metadata: Metadata = {

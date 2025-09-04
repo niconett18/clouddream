@@ -1,5 +1,5 @@
 // app/(components)/selector/questions.ts
-export type Answer = { id: string; label: string; icon?: string; meta?: Record<string, any> };
+export type Answer = { id: string; label: string; icon?: string; meta?: Record<string, unknown> };
 export type Question = { id: string; title: string; subtitle?: string; type: 'single'; answers: Answer[] };
 
 export const QUESTIONS: Question[] = [
